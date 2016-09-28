@@ -67,31 +67,9 @@ public class Main extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 680);
 		
-		JMenuBar menuBar = new JMenuBar();
-		setJMenuBar(menuBar);
 		
-		JMenu mnSystem = new JMenu("System");
-		menuBar.add(mnSystem);
 		
-		JMenuItem mntmChangeBackground = new JMenuItem("Change Background");
-		mnSystem.add(mntmChangeBackground);
 		
-		JMenuItem mntmQuit = new JMenuItem("Quit");
-		mntmQuit.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
-			}
-		});
-		mnSystem.add(mntmQuit);
-		getContentPane().setLayout(null);
-		
-		JButton btnNewButton = new JButton("Back");
-		btnNewButton.setBounds(257, 596, 89, 23);
-		getContentPane().add(btnNewButton);
-		
-		JButton btnNewButton_1 = new JButton("Restart");
-		btnNewButton_1.setBounds(158, 596, 89, 23);
-		getContentPane().add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Quit");
 		btnNewButton_2.addActionListener(new ActionListener() {
@@ -112,6 +90,47 @@ public class Main extends JFrame {
 		panel_1.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		panel_1.setBounds(10, 11, 574, 574);
 		getContentPane().add(panel_1);
+		
+		JButton btnNewButton = new JButton("Back");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				panel_1.undo();
+			}
+		});
+		btnNewButton.setBounds(257, 596, 89, 23);
+		getContentPane().add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Restart");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				panel_1.restart();
+			}
+		});
+		btnNewButton_1.setBounds(158, 596, 89, 23);
+		getContentPane().add(btnNewButton_1);
+		
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		
+		JMenu mnSystem = new JMenu("System");
+		menuBar.add(mnSystem);
+		
+		JMenuItem mntmChangeBackground = new JMenuItem("Change Background");
+		mnSystem.add(mntmChangeBackground);
+		mntmChangeBackground.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				panel_1.changebackground();
+			}
+		});
+		
+		JMenuItem mntmQuit = new JMenuItem("Quit");
+		mntmQuit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
+		mnSystem.add(mntmQuit);
+		getContentPane().setLayout(null);
 		
 	}
 }
