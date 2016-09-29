@@ -54,7 +54,7 @@ public class Board extends JPanel {
 		//using images from wallpaper warrior on the internet. These are not our personal images
 		filestring[0]="http://wallpaperwarrior.com/wp-content/uploads/2016/09/Wallpaper-11.jpg";
 		filestring[1]="http://wallpaperwarrior.com/wp-content/uploads/2016/09/Wallpaper-21.jpg";
-		filestring[2]="http://wallpaperwarrior.com/wp-content/uploads/2016/08/Soccer-Wallpaper-8.jpg";
+		filestring[2]="http://wallpaperepic.com/wp-content/uploads/2016/03/Cell-Phone-Wallpapers-AF.jpg";
 		
 		super.paint(g);
 		//put this in a for loop and make grid
@@ -161,6 +161,101 @@ public class Board extends JPanel {
 	}
 	
 	void checkwin(){
+		//vertical
+		for(int i=0;i<=13;i++){
+			for(int j=0;j<=8;j++){
+				
+				int whitecount=0;
+				int blackcount=0;
+				
+				for(int k=j;k<=j+5;k++){
+					if(this.cells[k][i]==1){
+						whitecount++;
+					}
+					
+					if(this.cells[k][i]==2){
+						blackcount++;
+					}
+					
+					if(whitecount==5||blackcount==5){
+						System.out.println("congratulations, you win!");
+					}
+				}
+				
+			}
+		}
+		
+		//vertical
+		for(int i=0;i<=13;i++){
+			for(int j=0;j<=8;j++){
+				
+				int whitecount=0;
+				int blackcount=0;
+				
+				for(int k=j;k<=j+5;k++){
+					if(this.cells[i][k]==1){
+						whitecount++;
+					}
+					
+					if(this.cells[i][k]==2){
+						blackcount++;
+					}
+					
+					if(whitecount==5||blackcount==5){
+						System.out.println("congratulations, you win!");
+					}
+				}
+				
+			}
+		}
+		
+		//diagonal-right
+		for(int i=0;i<=8;i++){
+			for(int j=0;j<=8;j++){
+				
+				int whitecount=0;
+				int blackcount=0;
+				
+				for(int k=0;k<=5;k++){
+					if(this.cells[i+k][j+k]==1){
+						whitecount++;
+					}
+					
+					if(this.cells[i+k][j+k]==2){
+						blackcount++;
+					}
+					
+					if(whitecount==5||blackcount==5){
+						System.out.println("congratulations, you win!");
+					}
+				}
+				
+			}
+		}
+		
+		//diagonal-left
+		for(int i=5;i<=13;i++){
+			for(int j=0;j<=8;j++){
+				
+				int whitecount=0;
+				int blackcount=0;
+				
+				for(int k=0;k<=5;k++){
+					if(this.cells[i-k][j+k]==1){
+						whitecount++;
+					}
+					
+					if(this.cells[i-k][j+k]==2){
+						blackcount++;
+					}
+					
+					if(whitecount==5||blackcount==5){
+						System.out.println("congratulations, you win!");
+					}
+				}
+				
+			}
+		}
 		
 	}
 	
