@@ -1,3 +1,20 @@
+/*Group Members: Tyler Coy and Sage Thongsrisubsku
+ *Date:9/29/16
+ *Class: CS320 
+ *
+ *Assignment:
+ *This program is a game called Gomoku
+ *The players have to get 5 of their pieces
+ *in a row either vertical, horizontal, or 
+ *diagonal. The players can can change 
+ *the background using the pull down menu
+ *and can undo moves as they play with the
+ *buttons on the window. This assignment
+ *was fully developed using pair programming
+ *approach.
+ * 
+ */
+package Assignment2_pairprogramming;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -19,6 +36,7 @@ import java.io.IOException;
 import java.awt.event.ActionEvent;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JMenu;
 import javax.swing.JTree;
 import java.awt.event.MouseAdapter;
@@ -71,10 +89,10 @@ public class Main extends JFrame {
 		
 		
 		
-		JButton btnNewButton_2 = new JButton("Quit");
+		JButton btnNewButton_2 = new JButton("Quit");//quit button
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
+				System.exit(0);//exit program
 			}
 		});
 		btnNewButton_2.setBounds(356, 596, 89, 23);
@@ -85,6 +103,14 @@ public class Main extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				panel_1.click(e.getX(),e.getY());
+				if(panel_1.winnerflag==1){
+					JOptionPane.showMessageDialog(panel_1, "White is the Winner!");
+					panel_1.restart();
+				}
+				else if(panel_1.winnerflag==2){
+					JOptionPane.showMessageDialog(panel_1, "Black is the Winner!");
+					panel_1.restart();
+				}
 			}
 		});
 		panel_1.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
